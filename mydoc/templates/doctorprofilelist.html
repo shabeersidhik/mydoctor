@@ -1,0 +1,57 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    #img1{
+        position: absolute;
+        right: 10%;
+        top:35%
+    }
+    #menus{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+    }
+
+    </style>
+    <div id=img1>
+     <img src= '{{doctor.image.url}}' style="width: 250px;height: 300px;"><br><br>
+    </div>
+<div id="menus">
+  
+Name           : Dr.{{ doctor.firstname }} {{ doctor.lastname }}<br><br>
+City           : {{ doctor.city }}<br><br>
+Department     : {{ doctor.department.departmentname}}<br><br>
+OP time        : {{ doctor.optiming }}<br><br>
+OP address     : {{ doctor.opaddress }} <br><br>
+Consulting fee :INR{{ doctor.fee }}         <br><br>
+
+
+<button class= "btn btn-success"onclick="fn_delete_doc('{{ doctor.id }}')">Delete</button>
+</div>
+
+<script>
+    function fn_delete_doc(doctor_id) {
+        
+        $.ajax({
+            url: 'http://127.0.0.1:8000/mydoc/doctorprofilelist/',
+            type: 'POST',
+            data: {
+                id:doctor_id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'      
+            },
+            success: res => {
+                if (res == 1) {
+                    $('#'+doctor_id).remove();
+                }
+            },
+            error: err => {
+                console.log(err);
+            }
+        })
+
+    }
+</script>
+
+{% endblock %}

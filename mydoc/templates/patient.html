@@ -1,0 +1,34 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<style>
+#list1{
+    padding-left: 40%;
+    padding-top: 10%;
+}
+</style>
+
+
+{% for pat in patient_list %}
+
+<div class="container">
+    <div id="list1">
+    
+        <div class="card" style="width:50%">
+          
+        
+            <h4 class="card-body">{{ pat.firstname }}</h4>
+            
+            <a href="/mydoc/editpatient?id={{pat.id}}" class="btn btn-primary">See Profile</a>
+          </div>
+        </div>  
+
+        
+
+{% endfor %}
+</div>
+
+
+{% endblock %}
+
+

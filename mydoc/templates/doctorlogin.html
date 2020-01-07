@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: white;
+    }
+    .menu{
+        float: left;
+        padding: 20px;
+        padding-top: 15%;
+    }
+    #regimage{
+        float: left;
+    }
+
+</style>
+<body>
+    <div id="regimage">
+        <img src="../static/regimage.jpg">
+    </div>
+        <div class="menu">
+                <form method="POST"  action="/mydoc/dlogin/">
+                    <label>Email</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;
+                    <input type="text" name='email'><br><br>
+                    <label>Password</label>&emsp;&emsp;&nbsp;
+                    <input type="password"name='password'><br><br>
+                    <button type="submit">SUBMIT</button></button><br><br>
+                    <!-- <a href='../templates/userregister.html'>New Patient</a><br><br> -->
+                    <a href='../templates/doctorregister.html'>New Doctor</a>
+                </form>
+                </div>
+                
+                
+    
+</body>
+</html>
+
+

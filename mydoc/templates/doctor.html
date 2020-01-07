@@ -1,0 +1,47 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<style>
+#list1{
+    padding-left: 40%;
+    padding-top: 10%;
+
+}
+    </style>
+
+{% for doct in doctor_list %}
+<div class="container">
+    <div id="list1">
+    
+        <div class="card" style="width:50%">
+          
+        
+            <h4 class="card-body">Dr. {{ doct.firstname }}</h4>
+            
+            <a href="/mydoc/doctorprofilelist?id={{doct.id}}" class="btn btn-primary">See Profile</a>
+          </div>
+        </div>       
+   
+
+
+
+<!-- <div id="">
+
+<ul>
+   
+    <li id="{{doct.id}}"> 
+            <input type="text" readonly value="Dr.{{ doct.firstname }}">
+            <a href="/mydoc/doctorprofilelist?id={{doct.id}}">
+                <button>DOCTOR PROFILE</button>
+            </a>
+            
+        </li>
+</ul> -->
+
+{% endfor %}
+</div>
+
+
+{% endblock %}
+
+

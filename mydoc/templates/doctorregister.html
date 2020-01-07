@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Doctor Register</title>
+    <style>
+            body{
+                background-color: white;
+            }
+            .menu{
+              
+                padding: 20px;
+                padding-top: 20%;
+            }
+            #regimage{
+                float: right;
+            }
+            #head{
+                background-color:cadetblue;
+                text-emphasis: none;;
+            }
+        </style>
+       
+            
+</head>
+<body>
+    <div class="container">
+    <div id="head">
+        <font size='13'>Doctor Registration</font><BR><BR><br><br>
+    </div><BR><BR><br><br>
+        <div id="regimage">
+                <img src="/static/doctor.png">
+            </div>
+    <div id="menu">
+        <form method="POST"  action="/mydoc/docreg/" enctype="multipart/form-data">
+            {% csrf_token %}
+                <label>Firstname</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type="text" name="firstname"required><br><br>
+                <label>Lastname</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type=text name="lastname"><br><br>
+                <label>Mobile number</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text"name="mobile"required><br><br>
+                <label>Email</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;&emsp;&nbsp;&nbsp;
+                <input type="email"name="email"required><br><br>
+                <label>Password</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type="password"name="password"required><br><br>
+                <label>city</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;
+                <select name="city" required>
+                    <option>Kasargod</option>
+                    <option>kannur</option>
+                    <option>kozhikode</option>
+                    <option>wayanad</option>
+                    <option>Malapuram</option>
+                    <option>Thrissur</option>
+                    <option>Eranakulam</option>
+                    <option>Alapuzha</option>
+                    <option>Kottayam</option>
+                    <option>Pathanamthitta</option>
+                    <option>Idukki</option>
+                    <option>Palakkad</option>
+                    <option>kollam</option>
+                    <option>Trivandrum</option>
+                     
+                </select>&emsp;&emsp;&emsp;&nbsp;
+                <select name="department">
+                    {% for dept in depts %}
+                    <option value=" {{ dept.id }} "> {{ dept.departmentname }} </option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <label>OP timing</label>&emsp;&emsp;&nbsp;
+                <input type="text"name="optime"required><br><br>
+                <label>OP Address</label>&nbsp;&emsp;&nbsp; 
+                <textarea rows=rows="4" cols="30"name="opaddress"></textarea><br><br>
+                <input type="radio"name="location">Home<br><br>
+                <input type="radio"name="location">Work<br><br>
+                <label>consulting fee</label>&nbsp;&nbsp;&nbsp;
+                <input type="text" name="fee" required><br><br>
+                <label>Image</label>&nbsp;&nbsp;
+                <input type="file" name="userimage" required><BR><BR>
+                <button type="submit"class="btn btn-success">SUBMIT</button></button>
+            </form>
+        </div>
+            
+    </div>   
+            
+    
+</body>
+</html>
+
+

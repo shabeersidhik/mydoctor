@@ -1,0 +1,35 @@
+{% extends 'doctorsuccess.html' %}
+{% block content %}
+
+
+
+    <style>
+        #list1{
+            padding-left: 40%;
+            padding-top: 10%;
+            
+        }
+        </style>
+    {% for aps in appoinments %}
+    <div class="container">
+        <div id="list1">
+        
+            <div class="card" style="width:60%">
+              
+            
+                <h4 class="card-header">Name of Patient: {{ aps.patient_id.firstname }}</h4>
+                <h6 class="card-body">Date: {{ aps.date }}</h6>
+                <h6 class="card-body">Time: {{ aps.time }}</h6>
+                
+               
+              </div>
+            </div>       
+       
+    
+        
+        {% endfor %}
+    
+    
+    </div>
+
+{% endblock %}

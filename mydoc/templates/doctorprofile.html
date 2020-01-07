@@ -1,0 +1,35 @@
+{% extends 'doctorlist.html' %}
+
+{% block content %}
+
+<style>
+    #img1{
+        position: absolute;
+        right: 10%;
+        top:35%
+    }
+    #menus{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+    }
+
+    </style>
+    <div id=img1>
+     <img class="img-thumbnail" src= '{{doctor.image.url}}' style="width:250px;height:300px;"><br><br>
+    </div>
+<div id="menus">
+  
+Name           : Dr.{{ doctor.firstname }} {{ doctor.lastname }}<br><br>
+City           : {{ doctor.city }}<br><br>
+Department     : {{ doctor.department.departmentname}}<br><br>
+OP time        : {{ doctor.optiming }}<br><br>
+OP address     : {{ doctor.opaddress }} <br><br>
+Consulting fee :INR{{ doctor.fee }}         <br><br>
+
+<a href="/mydoc/ldbkng?id={{doctor.id}}"><button class="btn btn-success">BOOK NOW</button></a>
+</div>
+
+
+
+{% endblock %}

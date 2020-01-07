@@ -1,0 +1,14 @@
+{% extends 'addept.html'%}
+
+{% block content %}
+<div id="menu">
+    <form method='POST' action='/mydoc/deptadd/'>
+{% csrf_token %}
+<label>Add Department </label>
+<input type="text" name="adddept">
+<button class="btn btn-primary">ADD</button>
+</div>
+</form>
+
+
+{% endblock %}

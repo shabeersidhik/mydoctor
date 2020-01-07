@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  {% load static%}
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home</title>
+    <style>
+    #menu{
+        float: left;
+        width:60%;
+        padding:0 10px;
+        text-align: left;
+        padding-top: 10%;
+    }
+    #imag{
+        float: left;
+        width: 30%;
+        height: 300px; 
+       
+        padding: 20px;
+            }
+    #head{
+        text-align: center;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: grey;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+#login{
+  padding-left: 40%;
+  padding-top: 5%;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="head">  <font size=14>Welcome to MyDoctor</font><br><br> </div>
+        <div class="topnav">
+          
+                <a href="/mydoc/login/">Logout</a>
+                <a href="/mydoc/myappoinments/">My appoinments</a>
+                <a href="/mydoc/editdoc/">Edit profile</a>
+                <a href="/mydoc/about/">About</a>
+                <a href="/mydoc/dochome/">Home</a>
+                
+                
+                
+                
+            
+
+              </div>
+   
+  
+    <div id="imag">
+        <img src="/static/loginimage.jpg">
+
+    </div>
+    {% block content %}
+    <div id="login">
+        <span>Hi     Dr. {{doctor_obj.firstname}}</span><br><br></div>
+   
+    
+        
+    {% endblock %}
+</body>
+</html>
+
+

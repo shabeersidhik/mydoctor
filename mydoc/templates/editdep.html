@@ -1,0 +1,59 @@
+{% extends 'adddep.html'%}
+
+{% block content %}
+<style>
+  #list1{
+        padding-left: 40%;
+        padding-top: 10%;
+    }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    {% for dept in depts %}
+    <div class="container">
+        <div id="list1">
+        
+            <div class="card" style="width:50%">
+              
+            
+                <h4 class="card-body">{{ dept.departmentname }}</h4>
+                <button class="btn btn-primary" onclick="fn_delete_dept('{{ dept.id }}')">Delete</button>
+                
+                
+              </div>
+            </div>  
+    
+
+
+       
+    {% endfor %}
+    </div>
+
+
+
+<script>
+    function fn_delete_dept(dept_id) {
+        
+        $.ajax({ 
+            url: 'http://127.0.0.1:8000/mydoc/editdepartment/',
+            type: 'POST',
+            data: {
+                dept_id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'      
+            },
+            success: res => {
+                if (res == 1) {
+                    $('#'+dept_id).remove();
+                }
+            },
+            error: err => {
+                console.log(err);
+            }
+        })
+
+    }
+</script>
+{% endblock %}

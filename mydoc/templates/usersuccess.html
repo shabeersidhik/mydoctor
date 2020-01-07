@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home</title>
+    <style>
+    #menu{
+        float: left;
+        width:60%;
+        padding:0 20px;
+        text-align: center;
+        padding-top: 20%;
+    }
+    #imag{
+        float: left;
+        width: 30%;
+        height: 300px; /* only for demonstration, should be removed */
+       
+        padding: 20px;
+            }
+    #head{
+        text-align: center;
+    }
+    .topnav {
+  overflow: hidden;
+  background-color: grey;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* .topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+} */
+#login{
+ 
+  position: relative;
+  left: 25%;
+  top: 30%;
+}
+    </style>
+</head>
+<!-- <script type="text/javascript">
+  function preventBack() { window.history.forward(); }
+  setTimeout("preventBack()", 0);
+  window.onunload = function () { null };
+</script> -->
+<body>
+    <div id="head">  <font size=14>Welcome to MyDoctor</font><br><br> </div>
+        <div class="topnav">
+                <a href="/mydoc/login/">Logout</a>
+                <a href="/mydoc/edituser/">Edit profile</a>
+                <a href="/mydoc/mybooking/">My Bookings</a>
+                <a href="/mydoc/about/">About</a>
+                <a class="active" href="/mydoc/homes/">Home</a>
+               
+                
+                
+                
+            
+
+              </div>
+   
+  
+    <div id="imag">
+        <img src="/static/loginimage.jpg">
+
+    </div>
+    {% block content%}
+    <div id="login">
+    <span>Hi {{patient_obj.firstname}}</span><br><br></div>
+    
+    <div id="menu">
+      
+      <form method="POST" action='/mydoc/listdoctor/'>
+        {% csrf_token %}
+        
+            <label>City</label>
+            <select name="city">
+                   <option>Kasargod</option>
+                   <option>kannur</option>
+                   <option>kozhikode</option>
+                   <option>wayanad</option>
+                   <option>Malapuram</option>
+                   <option>Thrissur</option>
+                   <option>Eranakulam</option>
+                   <option>Alapuzha</option>
+                   <option>Kottayam</option>
+                   <option>Pathanamthitta</option>
+                   <option>Idukki</option>
+                   <option>Palakkad</option>
+                   <option>kollam</option>
+                   <option>Trivandrum</option>
+                    
+            </select>
+                  
+            <label>Department</label>
+            <select name="department">
+                {% for dept in depts %}
+                <option value=" {{ dept.id }} "> {{ dept.departmentname }} </option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <button type="submit"class="btn btn-primary">Search</button>
+
+    </div>
+    
+  </form>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'usersuccess.html' %}
+
+
+{% block content %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+#menu1{
+    padding-left: 40%;
+    padding-top: 5%;
+
+}
+
+</style>
+<script>
+
+    $(document).ready(function() {
+        $('#success').on('click', function() {
+            if ($('#success').text() == 'Edit') {
+                $( '.editData').removeAttr('disabled');
+                $(this).text('Cancel');
+                console.log($this);
+        
+            } else {
+                $(this).text('Edit');
+                $( '.editData').attr('disabled', true);
+            }
+        });
+       
+    })
+  </script>
+
+<div id='menu1'>
+<form method="POST" action="/mydoc/saveuser/">
+    {% csrf_token %}
+First name:&emsp;<div id="form-group"><input type='text' name='firstname'class="form-control editData" value="{{patient_obj.firstname}}"disabled><br><br>
+Last name:&emsp;<input type='text' name='lastname'class="form-control editData" value="{{patient_obj.lastname}}"disabled><br><br>
+Mobile:&emsp;&emsp;&nbsp;<input type='text'name='mobile'class="form-control editData" value="{{patient_obj.mobilenumber}}"disabled><br><br></div>
+
+<button disabled class="btn btn-primary editData" type="submit">Submit</button>
+</form><br>
+<button class="btn btn-primary"id="success">Edit</button>
+<a href="/mydoc/change/"><button class="btn btn-primary">change password</button></a><br><br>
+</div>
+{% endblock %}

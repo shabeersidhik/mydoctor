@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyDoctor</title>
+   
+    </script>
+    <style>
+        .container {
+    position: relative;
+    max-width: 100%; /* Maximum width */
+    
+    }
+
+    .container .content {
+    position: absolute; 
+    top: 0; 
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: #f1f1f1;
+    width: 96.8%; 
+    padding: 20px;
+    }
+    
+    /* .container .btn1 {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #555;
+      color: white;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      }      */
+      .container .btn3 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      background-color: #555;
+      color: white;
+      font-size: 16px;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      }    
+.container .btn1:hover {
+  background-color: rgba(0, 0, 0, 0.288);
+}
+.container .btn2 {
+      position: absolute;
+      /* top: 50%; */
+      left: 90%;
+      /* transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%); */
+      background-color: #555;
+      color: white;
+      font-size: 12px;
+      /* padding: 12px 24px; */
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      }
+      .container .btn2:hover {
+  background-color: rgba(0, 0, 0, 0.288);     
+      }
+
+    
+    </style>
+</head>
+<body>
+        <div class="container">
+                <img src="../static/homeimage.jpg" alt="homepage" style="width:100%;">
+                <!-- {% block content %} -->
+                
+                <button class="btn3"onclick="location.href='/mydoc/load/'">REGISTER/LOGIN</button>
+                <!-- <button class="btn1"onclick="location.href='../templates/doctorlogin.html'">DOCTOR LOGIN</button> -->
+              
+                
+              
+                <!-- {% endblock %} -->
+                <div class="content">
+                  <h1>MyDoctor</h1>
+                  <p>To find your Doctor</p>
+                  
+                 
+                </div>
+              
+              </div>
+</body>
+</html>

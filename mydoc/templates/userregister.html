@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User register</title>
+</head>
+<style>
+        body{
+            background-color: white;
+        }
+        .menu{
+          
+            padding: 20px;
+            padding-top: 20%;
+        }
+        #regimage{
+            float: right;
+        }
+        #head{
+            background-color:cadetblue;
+            text-emphasis: none;;
+        }
+    </style>
+
+<body>
+    <div class="container">
+        <div id="head">
+                <font size='13'>User Registration</font><BR><BR><br><br>
+            </div><BR><BR><br><br>
+                <div id="regimage">
+                        <img src="/static/doctor.png">
+                    </div>
+            <div id="menu">
+            <form method="POST"  action="/mydoc/userreg/">
+                {% csrf_token %}
+                 <label>Firstname</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type="text"name='firstname'><br><br>
+                <label>Lastname</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type=text name='lastname'><br><br>
+                <label>Mobile number</label>&emsp;
+                <input type="text" name='mobile'><br><br>
+                <label>Email</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;&emsp;&nbsp;&nbsp;
+                <input type="email"name='email'><br><br>
+                <label>Password</label>&emsp;&emsp;&nbsp;&emsp;&nbsp;
+                <input type="password"name='password'><br><br>
+            
+              
+               
+                <button type="submit" class="btn btn-success">SUBMIT</button></button>
+            </form>
+            </div>
+            
+            
+        </div>  
+</body>
+</html>
